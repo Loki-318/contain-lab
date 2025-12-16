@@ -1,0 +1,9 @@
+import os
+print("=== Environment Variables Passed to Container ===\n")
+for key, value in os.environ.items():
+  print(f"{key} = {value}")
+
+FROM python:3.9-slim
+WORKDIR /app
+COPY env_printer.py .
+CMD ["python", "env_printer.py"]
