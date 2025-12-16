@@ -1,0 +1,19 @@
+>>> gedit hello.sh
+
+// inside hello.sh
+#!/bin/bash
+echo "-----------------------------------"
+echo "Welcome to Docker Offline"
+echo "This script is running inside a container"
+echo "-----------------------------------"
+
+// Dockerfile
+FROM ubuntu:latest
+WORKDIR /app
+COPY hello.sh .
+RUN chmod +x hello.sh
+CMD ["./hello.sh"]
+
+// to run
+docker build -t offline-demo
+docker run offline-demo
