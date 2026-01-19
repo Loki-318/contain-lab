@@ -1,0 +1,26 @@
+// app.py
+def calc():
+  print("Arithmetic calc")
+  a = float(input("Enter first number:"))
+  b = float(input("Enter second number:"))
+  print("Select operation: \n1. Add\n2. Subtract\n3. Multiply\n4. Division")
+  ch = int(input("Enter choice: "))
+  if ch == 1:
+   print(f"Sum: {a+b}")
+  elif ch == 2:
+    print(f"Diff: {a-b}")
+  elif ch == 3:
+    print(f"Product: {a*b}")
+  elif ch == 4:
+    print(f"Quotient: {a//b}")
+  else: 
+    print("Invalid")
+
+if __name__ == "__main__":
+  calc()
+
+// Dockerfile
+FROM python:3.9-slim
+WORKDIR /app
+COPY app.py .
+CMD ["python", "app.py"]
